@@ -88,6 +88,29 @@ variable "instance_ingress_cidr_rules" {
     }]
 }
 
+variable "instance_egress_cidr_rules" {
+  type = "list"
+  default = [
+    {
+      "from_port" = "443",
+      "to_port" = "443",
+      "protocol" = "tcp",
+      "cidr" = "0.0.0.0/0"
+    },
+    {
+      "from_port" = "80",
+      "to_port" = "80",
+      "protocol" = "tcp",
+      "cidr" = "0.0.0.0/0"
+    },
+    {
+      "from_port" = "-1",
+      "to_port" = "-1",
+      "protocol" = "icmp",
+      "cidr" = "0.0.0.0/0"
+    }]
+}
+
 variable "instance_load_balancer_ingress_ports" {
   type = "list"
   default = [
