@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "load_balancer_security_group_ingress" {
   to_port = "${lookup(var.load_balancer_ingress_cidr_rules[count.index],"to_port")}"
   protocol = "${lookup(var.load_balancer_ingress_cidr_rules[count.index],"protocol")}"
   type = "ingress"
-  security_group_id = "${aws_security_group.load_balancer_security_group}"
+  security_group_id = "${aws_security_group.load_balancer_security_group.id}"
   cidr_blocks = [
     "${lookup(var.load_balancer_ingress_cidr_rules[count.index], "cidr")}"]
 }
