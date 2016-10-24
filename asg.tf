@@ -10,7 +10,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   max_size = 1
   min_size = 1
   health_check_grace_period = 600
-  health_check_type = "ELB"
+  health_check_type = "${var.autoscaling_healthcheck_type}"
   desired_capacity = 1
   launch_configuration = "${aws_launch_configuration.launch_config.name}"
   load_balancers = [

@@ -48,3 +48,9 @@ variable "route53_zone" {
   description = "the zone for route53 record creation"
   type = "string"
 }
+
+variable "autoscaling_healthcheck_type" {
+  description = "the health check type for the instances in the autoscaling group"
+  type = "string"
+  default = "EC2"
+}
