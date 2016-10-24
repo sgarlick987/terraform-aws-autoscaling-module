@@ -54,3 +54,27 @@ variable "autoscaling_healthcheck_type" {
   type = "string"
   default = "EC2"
 }
+
+variable "load_balancer_ingress_cidr_rules" {
+  type = "list"
+  default = [
+    {
+      "from_port" = "443",
+      "to_port" = "443",
+      "protocol" = "tcp",
+      "cidr" = "0.0.0.0/0"
+    },
+    {
+      "from_port" = "80",
+      "to_port" = "80",
+      "protocol" = "tcp",
+      "cidr" = "0.0.0.0/0"
+    }]
+}
+
+variable "instance_load_balancer_ingress_ports" {
+  type = "list"
+  default = [
+    "8080"]
+}
+}
