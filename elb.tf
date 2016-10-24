@@ -16,7 +16,7 @@ resource "aws_elb" "load_balancer" {
     target = "HTTP:8000/"
     interval = 30
   }
-
+  security_groups = ["${aws_security_group.load_balancer_security_group}"]
   cross_zone_load_balancing = true
   idle_timeout = 400
   connection_draining = true

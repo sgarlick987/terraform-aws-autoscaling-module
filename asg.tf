@@ -3,6 +3,7 @@ resource "aws_launch_configuration" "launch_config" {
   image_id = "${var.image_id}"
   key_name = "${var.environment}"
   instance_type = "${var.instance_type}"
+  security_groups = ["${aws_security_group.instance_security_group}"]
 }
 
 resource "aws_autoscaling_group" "autoscaling_group" {
