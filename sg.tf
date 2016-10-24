@@ -23,7 +23,7 @@ resource "aws_security_group" "instance_security_group" {
     to_port = 8080
     protocol = "tcp"
     security_groups = [
-      "${aws_security_group.load_balancer_security_group}"]
+      "${aws_security_group.load_balancer_security_group.id}"]
   }
   ingress {
     from_port = -1
