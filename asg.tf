@@ -17,7 +17,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   load_balancers = [
     "${aws_elb.load_balancer.name}"]
   vpc_zone_identifier = [
-    "${var.load_balancer_subnet_ids}"]
+    "${var.instance_subnet_ids}"]
 
   tag {
     key = "Name"
@@ -27,16 +27,16 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   tag {
     key = "Environment"
     value = "${var.environment}"
-    propagate_at_launch = false
+    propagate_at_launch = true
   }
   tag {
     key = "Application"
     value = "${var.application}"
-    propagate_at_launch = false
+    propagate_at_launch = true
   }
   tag {
     key = "Detail"
     value = "${var.detail}"
-    propagate_at_launch = false
+    propagate_at_launch = true
   }
 }

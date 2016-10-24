@@ -77,8 +77,23 @@ variable "load_balancer_ingress_cidr_rules" {
     }]
 }
 
+variable "instance_ingress_cidr_rules" {
+  type = "list"
+  default = [
+    {
+      "from_port" = "-1",
+      "to_port" = "-1",
+      "protocol" = "icmp",
+      "cidr" = "0.0.0.0/0"
+    }]
+}
+
 variable "instance_load_balancer_ingress_ports" {
   type = "list"
   default = [
-    "8080"]
+    {
+      "from_port" = "8080",
+      "to_port" = "8080",
+      "protocol" = "tcp"
+    }]
 }
