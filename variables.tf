@@ -77,4 +77,3 @@ variable "instance_load_balancer_ingress_ports" {
   default = [
     "8080"]
 }
-}
