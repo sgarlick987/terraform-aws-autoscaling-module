@@ -23,7 +23,7 @@ variable "load_balancer_subnet_ids" {
   type = "list"
 }
 
-variable "instance_balancer_subnet_ids" {
+variable "instance_subnet_ids" {
   description = "list of subnets to deploy instnaces into"
   type = "list"
 }
