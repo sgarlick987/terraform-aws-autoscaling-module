@@ -49,6 +49,11 @@ variable "route53_zone" {
   type = "string"
 }
 
+variable "vpc_id" {
+  description = "the vpc to create resources in"
+  type = "string"
+}
+
 variable "autoscaling_healthcheck_type" {
   description = "the health check type for the instances in the autoscaling group"
   type = "string"

@@ -1,5 +1,6 @@
 resource "aws_security_group" "load_balancer_security_group" {
   name = "${var.application}-${var.environment}-${var.detail}-load-balancer"
+  vpc_id = "${var.vpc_id}"
 
 }
 
@@ -16,6 +17,7 @@ resource "aws_security_group_rule" "load_balancer_security_group_ingress" {
 
 resource "aws_security_group" "instance_security_group" {
   name = "${var.application}-${var.environment}-${var.detail}-instance"
+  vpc_id = "${var.vpc_id}"
   ingress {
     from_port = 8080
     to_port = 8080
