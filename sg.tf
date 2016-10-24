@@ -35,7 +35,7 @@ resource "aws_security_group_rule" "instance_security_group_egress" {
   from_port = "${lookup(var.instance_egress_cidr_rules[count.index], "from_port")}"
   to_port = "${lookup(var.instance_egress_cidr_rules[count.index], "to_port")}"
   protocol = "${lookup(var.instance_egress_cidr_rules[count.index], "protocol")}"
-  type = "ingress"
+  type = "egress"
   security_group_id = "${aws_security_group.instance_security_group.id}"
   cidr_blocks = [
     "${lookup(var.instance_egress_cidr_rules[count.index], "cidr")}"]
