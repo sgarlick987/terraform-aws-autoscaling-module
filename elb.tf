@@ -3,7 +3,7 @@ resource "aws_elb" "load_balancer" {
   subnets = ["${var.load_balancer_subnet_ids}"]
 
   listener {
-    instance_port = 8000
+    instance_port = 8080
     instance_protocol = "http"
     lb_port = 80
     lb_protocol = "http"
@@ -13,7 +13,7 @@ resource "aws_elb" "load_balancer" {
     healthy_threshold = 2
     unhealthy_threshold = 2
     timeout = 3
-    target = "HTTP:8000/"
+    target = "HTTP:8080/"
     interval = 30
   }
   security_groups = ["${aws_security_group.load_balancer_security_group.id}"]
