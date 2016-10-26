@@ -53,6 +53,11 @@ variable "vpc_id" {
   description = "the vpc to create resources in"
   type = "string"
 }
+variable "asg_version" {
+  description = "the version of the launch config and asg to create"
+  type = "string"
+  default = "v000"
+}
 
 variable "autoscaling_healthcheck_type" {
   description = "the health check type for the instances in the autoscaling group"
