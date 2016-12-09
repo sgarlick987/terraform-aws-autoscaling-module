@@ -33,6 +33,15 @@ variable "image_id" {
   type = "string"
 }
 
+variable "cluster_min_size" {
+  description = "the minimum size of the cluster"
+  type = "string"
+}
+
+variable "cluster_max_size" {
+  description = "the maximum size of the cluster"
+  type = "string"
+}
 variable "instance_type" {
   description = "the instance type to use for the autoscaling group"
   type = "string"

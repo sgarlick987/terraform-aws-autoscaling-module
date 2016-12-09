@@ -1,7 +1,4 @@
 resource "aws_launch_configuration" "launch_config" {
-  lifecycle {
-    create_before_destroy = true
-  }
   name = "${var.application}-${var.environment}-${var.detail}-${var.asg_version}"
   image_id = "${var.image_id}"
   key_name = "${var.environment}"
@@ -11,16 +8,13 @@ resource "aws_launch_configuration" "launch_config" {
 }
 
 resource "aws_autoscaling_group" "autoscaling_group" {
-  lifecycle {
-    create_before_destroy = true
-  }
   name = "${aws_launch_configuration.launch_config.name}"
-  launch_configuration = "${aws_launch_configuration.launch_config.name}"
-  max_size = 1
-  min_size = 1
+  max_size = "${var.cluster_max_size}"
+  min_size = "${var.cluster_min_size}"
   health_check_grace_period = 600
   health_check_type = "${var.autoscaling_healthcheck_type}"
   desired_capacity = 1
+  launch_configuration = "${aws_launch_configuration.launch_config.name}"
   load_balancers = [
     "${aws_elb.load_balancer.name}"]
   vpc_zone_identifier = [
