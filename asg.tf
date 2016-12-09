@@ -13,7 +13,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   min_size = "${var.cluster_min_size}"
   health_check_grace_period = 600
   health_check_type = "${var.autoscaling_healthcheck_type}"
-  desired_capacity = 1
+  desired_capacity = "${var.cluster_desired_size}"
   launch_configuration = "${aws_launch_configuration.launch_config.name}"
   load_balancers = [
     "${aws_elb.load_balancer.name}"]
@@ -40,4 +40,8 @@ resource "aws_autoscaling_group" "autoscaling_group" {
     value = "${var.detail}"
     propagate_at_launch = true
   }
+}
+
+output "autoscaling_group_name" {
+  value = "${aws_autoscaling_group.autoscaling_group.name}"
 }

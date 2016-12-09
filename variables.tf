@@ -42,6 +42,11 @@ variable "cluster_max_size" {
   description = "the maximum size of the cluster"
   type = "string"
 }
+variable "cluster_desired_size" {
+  description = "the desired size of the cluster"
+  type = "string"
+}
+
 variable "instance_type" {
   description = "the instance type to use for the autoscaling group"
   type = "string"
