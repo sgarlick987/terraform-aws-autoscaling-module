@@ -13,7 +13,7 @@ resource "aws_elb" "load_balancer" {
     healthy_threshold = 2
     unhealthy_threshold = 2
     timeout = 3
-    target = "HTTP:8080/"
+    target = "${var.elb_health_check}"
     interval = 30
   }
   security_groups = ["${aws_security_group.load_balancer_security_group.id}"]

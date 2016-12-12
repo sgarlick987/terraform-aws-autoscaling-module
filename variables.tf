@@ -139,3 +139,8 @@ variable "instance_load_balancer_ingress_ports" {
       "protocol" = "tcp"
     }]
 }
+
+variable "elb_health_check" {
+  type = "string"
+  default = "HTTP:8080/"
+}
