@@ -61,6 +61,6 @@ resource "aws_security_group_rule" "load_balancer_instance_security_group_egress
   source_security_group_id = "${aws_security_group.instance_security_group.id}"
 }
 
-output "security_group_id" {
+output "instance_security_group_id" {
   value = "${aws_security_group.instance_security_group.id}"
 }
